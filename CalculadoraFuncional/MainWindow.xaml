@@ -12,21 +12,21 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="157*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="211,323,0,0" VerticalAlignment="Top" Height="33" Width="174" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="406,323,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="0" HorizontalAlignment="Left" Margin="211,323,0,0" VerticalAlignment="Top" Height="33" Width="174" Grid.Column="2"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="406,323,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="507,323,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="507,264,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="406,264,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="317,264,0,0" VerticalAlignment="Top" Height="33" Width="68" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="211,264,0,0" VerticalAlignment="Top" Height="33" Width="68" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="211,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="317,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="406,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="507,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="211,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="317,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="406,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="507,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="3" HorizontalAlignment="Left" Margin="406,264,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="2" HorizontalAlignment="Left" Margin="317,264,0,0" VerticalAlignment="Top" Height="33" Width="68" Grid.Column="2"/>
+        <Button Content="1" HorizontalAlignment="Left" Margin="211,264,0,0" VerticalAlignment="Top" Height="33" Width="68" Grid.Column="2"/>
+        <Button Content="4" HorizontalAlignment="Left" Margin="211,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="5" HorizontalAlignment="Left" Margin="317,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="6" HorizontalAlignment="Left" Margin="406,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="%" HorizontalAlignment="Left" Margin="507,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="7" HorizontalAlignment="Left" Margin="211,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="8" HorizontalAlignment="Left" Margin="317,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2" Click="Button_Click"/>
+        <Button Content="9" HorizontalAlignment="Left" Margin="406,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="507,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
 
     </Grid>
 </Window>
