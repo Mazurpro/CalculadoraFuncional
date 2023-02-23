@@ -1,0 +1,32 @@
+﻿<Window x:Class="CalculadoraFuncional.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculadoraFuncional"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,0,-6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="157*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="211,323,0,0" VerticalAlignment="Top" Height="33" Width="174" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="406,323,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="507,323,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="507,264,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="406,264,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="317,264,0,0" VerticalAlignment="Top" Height="33" Width="68" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="211,264,0,0" VerticalAlignment="Top" Height="33" Width="68" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="211,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="317,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="406,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="507,0,0,0" VerticalAlignment="Center" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="211,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="317,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="406,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="507,146,0,0" VerticalAlignment="Top" Height="33" Width="70" Grid.Column="2"/>
+
+    </Grid>
+</Window>
