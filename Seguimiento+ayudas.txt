@@ -9,3 +9,5 @@ consejos para solucionar fallos o mofificar características para la adecuación
 Para arrancar bien, debes añadir una licencia y un README donde explique de que va tu proyecto
 y la tecnologías que usarás.
 Además debes incluir un enlace a tu página en Odoo donde hable de tu proyecto.
+01/03/2023
+sigue sin enlace a Odoo...
