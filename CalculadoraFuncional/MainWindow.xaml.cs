@@ -56,66 +56,83 @@ namespace CalculadoraFuncional
             value *= -1;
             txtResult.Text = value.ToString();
         }
-        private string currentNumber = string.Empty;
+        private string number = string.Empty;
         private string operation = string.Empty;
         private double firstNumber = 0.0;
         private double secondNumber = 0.0;
         private double result = 0.0;
+        private bool isDecimal = false;
 
         private void Number_Click(object sender, RoutedEventArgs e)
         {
             string number = (sender as Button).Content.ToString();
-            currentNumber += number;
-            txtResult.Text = currentNumber;
-        }
 
-        private void Operator_Click(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(currentNumber))
+            if (number == "." && txtResult.Text.Contains("."))
             {
-                firstNumber = double.Parse(currentNumber);
-                operation = (sender as Button).Content.ToString();
-                currentNumber = string.Empty;
-            }
-        }
-
-        private void Equal_Click(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(currentNumber))
-            {
-                secondNumber = double.Parse(currentNumber);
+                // No permitir agregar más de una coma
+                return;
             }
 
-            switch (operation)
+            if (txtResult.Text == "0" && number != ".")
             {
-                case "+":
-                    result = firstNumber + secondNumber;
-                    break;
-                case "-":
-                    result = firstNumber - secondNumber;
-                    break;
-                case "*":
-                    result = firstNumber * secondNumber;
-                    break;
-                case "/":
-                    if (secondNumber != 0)
-                    {
-                        result = firstNumber / secondNumber;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cannot divide by zero.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    break;
+                txtResult.Text = number;
             }
-            txtResult.Text = result.ToString();
-            currentNumber = result.ToString();
-            operation = string.Empty;
+            else
+            {
+                txtResult.Text += number;
+            }
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            currentNumber = string.Empty;
+            txtResult.Text = "0";
+        }
+
+        private void Operator_Click(object sender, RoutedEventArgs e)
+        {
+
+            Console.Write(txtResult+"5614161146153");
+            firstNumber = double.Parse(txtResult.Text);
+            operation = (sender as Button).Content.ToString();
+            txtResult.Text = "";
+        }
+
+        private void Equal_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtResult.Text))
+            {
+                secondNumber = double.Parse(txtResult.Text);
+
+                switch (operation)
+                {
+                    case "+":
+                        result = firstNumber + secondNumber;
+                        break;
+                    case "-":
+                        result = firstNumber - secondNumber;
+                        break;
+                    case "*":
+                        result = firstNumber * secondNumber;
+                        break;
+                    case "/":
+                        if (secondNumber != 0)
+                        {
+                            result = firstNumber / secondNumber;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cannot divide by zero.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        break;
+                }
+                txtResult.Text = result.ToString();
+                firstNumber = result;
+            }
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            number = string.Empty;
             operation = string.Empty;
             firstNumber = 0.0;
             secondNumber = 0.0;
