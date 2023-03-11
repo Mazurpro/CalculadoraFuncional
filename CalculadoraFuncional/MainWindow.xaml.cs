@@ -88,15 +88,16 @@ namespace CalculadoraFuncional
                     result *= newNumber;
                     break;
                 case "/":
-                    if (secondNumber != 0)
+                    if (newNumber != 0)
                     {
-                        result = firstNumber / secondNumber;
+                        result /= newNumber;
                     }
                     else
                     {
                         MessageBox.Show("No puedes dividir entre 0.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     break;
+
 
             }
             txtResult.Text = result.ToString();
@@ -158,6 +159,7 @@ namespace CalculadoraFuncional
         }
 
 
+
         private void ButtonDecimal_Click(object sender, RoutedEventArgs e)
         {
             if (!txtResult.Text.Contains(","))
@@ -179,7 +181,6 @@ namespace CalculadoraFuncional
             txtResult.Text = (-number).ToString();
         }
     }
-
     internal class ResultWindow
     {
         private double result;
@@ -189,6 +190,4 @@ namespace CalculadoraFuncional
             this.result = result;
         }
     }
-
-
 }
