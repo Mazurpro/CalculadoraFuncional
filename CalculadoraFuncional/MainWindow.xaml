@@ -6,6 +6,13 @@
 
 
     <Window.Resources>
+        <Storyboard x:Key="FlashAnimation">
+            <ColorAnimation Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
+                        Duration="0:0:0.5"
+                        From="White"
+                        To="Black"
+                        AutoReverse="True"/>
+        </Storyboard>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="LightBlue"/>
             <Setter Property="FontSize" Value="25" />
