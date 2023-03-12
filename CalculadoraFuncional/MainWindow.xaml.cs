@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Drawing;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using Xceed.Wpf.Toolkit.Core.Converters;
+using Color = System.Windows.Media.Color;
 
 namespace CalculadoraFuncional
 {
@@ -15,10 +18,84 @@ namespace CalculadoraFuncional
         private string currentOperator;
         private int firstNumber;
         private readonly int secondNumber;
+        private void SetButtonBackgroundColor(Button button)
+        {
+            ConfiguracionCalculadora.LeerXML();
+
+            // Obtener el color de fondo del archivo de configuración
+            string colorString = ConfiguracionCalculadora.colorBoton;
+            System.Windows.Media.Color bgColor = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(colorString);
+
+            // Establecer el color de fondo del botón
+            button.Background = new SolidColorBrush(bgColor);
+        }
+        private void SetBackGroundColor(Window w1)
+        {
+            ConfiguracionCalculadora.LeerXML();
+
+            // Obtener el color de fondo del archivo de configuración
+            string colorString = ConfiguracionCalculadora.colorFondo;
+            System.Windows.Media.Color bgColor = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(colorString);
+
+            // Establecer el color de fondo del botón
+            w1.Background = new SolidColorBrush(bgColor);
+            ButtonSettings.Background=new SolidColorBrush(bgColor);
+        }
+        private void darColores()
+        {
+            /*ESTO LO QUE HACE ES DARLE EL COLOR A TODOS LOS BOTONES SEGUN LA CONFIGURACION PREVIAMENTE GUARDADA*/
+            SetButtonBackgroundColor(btnClear);
+            SetButtonBackgroundColor(btnAdd);
+            SetButtonBackgroundColor(btnMultiply);
+            SetButtonBackgroundColor(btnDivide);
+            SetButtonBackgroundColor(btnSubtract);
+            SetButtonBackgroundColor(btnEqual);
+            SetButtonBackgroundColor(btnZero);
+            SetButtonBackgroundColor(btnOne);
+            SetButtonBackgroundColor(btnTwo);
+            SetButtonBackgroundColor(btnThree);
+            SetButtonBackgroundColor(btnFour);
+            SetButtonBackgroundColor(btnFive);
+            SetButtonBackgroundColor(btnSix);
+            SetButtonBackgroundColor(btnSeven);
+            SetButtonBackgroundColor(btnEight);
+            SetButtonBackgroundColor(btnNine);
+            SetButtonBackgroundColor(ButtonDecimal);
+            SetButtonBackgroundColor(ButtonMemPlusMinus);
+            SetButtonBackgroundColor(ButtonPercentage);
+        }
+        private void ChangeAnimationColor()
+            
+        {
+            ConfiguracionCalculadora.LeerXML();
+            Color color = (Color)System.Windows.Media.ColorConverter.ConvertFromString(ConfiguracionCalculadora.colorAnimacion);
+
+            Storyboard animation = (Storyboard)this.FindResource("FlashAnimation");
+            ColorAnimation colorAnimation = (ColorAnimation)animation.Children[0];
+            colorAnimation.To = color;
+        }
+
+
 
         public MainWindow()
         {
+            
             InitializeComponent();
+            darColores();
+            SetBackGroundColor(this);
+
+            ChangeAnimationColor();
+            Closing += MainWindow_Closing;
+           
+           
+         
+
+        }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        { 
+            Inicio i1=new Inicio();
+            i1.Show();
         }
 
         private void Number_Click(object sender, RoutedEventArgs e)
@@ -38,7 +115,7 @@ namespace CalculadoraFuncional
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+           
         }
 
         private void Operator_Click(object sender, RoutedEventArgs e)
@@ -107,9 +184,10 @@ namespace CalculadoraFuncional
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
+            ConfiguracionCalculadora.LeerXML();
             // Realizar animación para los elementos de texto
             SolidColorBrush originalBrush = (SolidColorBrush)txtResult.Foreground;
-            SolidColorBrush newBrush = new SolidColorBrush(Colors.Red);
+            SolidColorBrush newBrush = new SolidColorBrush((Color)System.Windows.Media.ColorConverter.ConvertFromString(ConfiguracionCalculadora.colorAnimacion));
 
             Storyboard storyboard = new Storyboard();
             DoubleAnimation fadeOutAnimation = new DoubleAnimation()
@@ -144,12 +222,17 @@ namespace CalculadoraFuncional
             txtResult.Foreground = newBrush;
             txtResult.Opacity = 1.0;
             storyboard.Begin(txtResult);
+            
 
             // Restablecer valores después de la animación
-            storyboard.Completed += (o, args) =>
+            // Restablecer valores después de la animación
+             storyboard.Completed += (o, args) =>
+             
             {
-                txtResult.Foreground = originalBrush;
+                newBrush = originalBrush;
+                // Eliminar controlador de eventos
             };
+
 
             // Restablecer valores de calculadora
             txtResult.Text = "0";
@@ -179,6 +262,15 @@ namespace CalculadoraFuncional
         {
             double number = double.Parse(txtResult.Text);
             txtResult.Text = (-number).ToString();
+        }
+
+        private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            Conf conf=new Conf();
+           
+            conf.Show();
+            this.Hide();
+
         }
     }
     internal class ResultWindow
